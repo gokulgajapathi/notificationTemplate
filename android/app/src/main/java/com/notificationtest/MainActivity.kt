@@ -1,4 +1,4 @@
-package com.notificationtest
+package com.test.noti
 
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate

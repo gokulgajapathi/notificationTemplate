@@ -1,4 +1,4 @@
-package com.notificationtest
+package com.test.noti
 
 import android.app.Application
 import com.facebook.react.PackageList
