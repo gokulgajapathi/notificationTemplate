@@ -7,6 +7,7 @@ import { name as appName } from './app.json';
 
 // (Optional) If you send data-only messages, you can show a local notification here
 messaging().setBackgroundMessageHandler(async remoteMessage => {
+    console.log('📬 Background FCM message:', remoteMessage);  
   // Example (only if you need to surface a tray notification from data-only):
   // await notifee.displayNotification({
   //   title: remoteMessage.data?.title || 'New message',
@@ -14,6 +15,22 @@ messaging().setBackgroundMessageHandler(async remoteMessage => {
   //   data: remoteMessage.data,
   //   android: { channelId: 'default' },
   // });
+
+    if (remoteMessage?.data) {
+    await notifee.displayNotification({
+      title: remoteMessage.data.title || 'New update',
+      body: remoteMessage.data.body || '',
+      data: remoteMessage.data,
+      android: {
+        channelId: 'default',
+        sound: 'vendor_notify', // custom sound
+        pressAction: { id: 'default' },
+      },
+      ios: {
+        sound: 'vendor_notify',
+      },
+    });
+  }
 });
 
 // If you must react to Notifee background events, you can also:
