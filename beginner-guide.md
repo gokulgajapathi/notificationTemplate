@@ -152,15 +152,6 @@ apply plugin: 'com.google.gms.google-services'
             </intent-filter>
         </activity>
 
-        <!-- 🔥 ADD FIREBASE SERVICE -->
-        <service
-            android:name="io.invertase.notifee.NotifeeFirebaseMessagingService"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-            </intent-filter>
-        </service>
-
         <!-- 🔥 ADD NOTIFICATION CONFIG -->
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_channel_id"
